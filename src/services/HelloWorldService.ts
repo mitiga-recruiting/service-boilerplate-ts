@@ -1,5 +1,5 @@
 export class HelloWorldService {
-  public getHelloWorldString() {
+  public getHelloWorldString(): string {
     return 'Hello, world!'
   }
 }
