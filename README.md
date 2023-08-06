@@ -1,7 +1,7 @@
 # TypeScript and Fastify Service Boilerplate
 Welcome, fellow Mitiga candidate. We're glad you're here :-)
 
-Please follow the directions to get started with this boilerplate. Make sure the server and tests are running on you machine **before** the interview.
+Please follow the directions to get started with this boilerplate. Make sure the server and tests are running on your machine **before** the interview.
 
 We wish you the best of luck :-)
 
