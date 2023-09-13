@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "Make sure your server is started"
+curl http://localhost:8080/travel/location/32.0853/34.7818/weather

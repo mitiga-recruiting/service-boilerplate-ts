@@ -1,17 +1,17 @@
 import fastify from 'fastify'
-import { HelloWorldController } from './controllers/HelloWorldController'
-import { HelloWorldService } from './services/HelloWorldService'
+import { MitigaWeatherRecommendationController } from './controllers/MitigaWeatherRecommendationController'
+import { MitigaWeatherRecommendationService } from './services/MitigaWeatherRecommendationService'
+import { OpenWeatherDriver } from './drivers/OpenWeatherDriver'
+import { config } from './config'
+import { HttpServer } from './HttpServer'
 
-const helloWorldController = new HelloWorldController(new HelloWorldService())
+const openWeatherDriver = new OpenWeatherDriver(config.get('openWeatherMapApiKey'))
+const mitigaTravelService = new MitigaWeatherRecommendationService(openWeatherDriver)
+const mitigaTravelController = new MitigaWeatherRecommendationController(mitigaTravelService)
 
-const server = fastify()
-
-server.get('/hello-world', helloWorldController.getHelloWorld.bind(helloWorldController))
-
-server.listen({ port: 8080 }, (err, address) => {
-  if (err) {
-    console.error(err)
-    process.exit(1)
-  }
-  console.log(`Server listening at ${address}`)
+const port = config.get('port')
+const httpServer = new HttpServer(port, mitigaTravelController)
+httpServer.start().catch((error) => {
+  console.error(error)
+  process.exit(1)
 })
