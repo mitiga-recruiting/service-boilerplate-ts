@@ -6,30 +6,39 @@ Please follow the directions to get started with this boilerplate. Make sure the
 We wish you the best of luck :-)
 
 ## Getting Started
+1. Clone the repository: 
+  
+    ```git clone https://github.com/mitiga-recruiting/service-boilerplate-ts.git```
 
-`yarn`:
-```
-  yarn install
-  yarn start
-```
-`npm`:
-```
-  npm install
-  npm start
-```
+2. You need to set your API key you got from Mitiga:
+   
+   ```export OPEN_WEATHER_MAP_API_KEY=<PASTE API KEY>```
 
-After the service has started, you should see:
+3. Install dependencies and start the server
 
-```
-Server listening at http://127.0.0.1:8080
-```
-Make sure the server is responding as expected:
+    `yarn`:
+    ```
+    yarn install
+    yarn start
+    ```
+    `npm`:
+    ```
+    npm install
+    npm start
+    ```
 
-```
-$ curl http://127.0.0.1:8080/hello-world
+4. After the service has started, you should see:
 
-{"greeting":"Hello, world!"}%             
-```
+    ```
+    Server listening at http://127.0.0.1:8080
+    ```
+5. Make sure the server is responding as expected:
+
+    ```
+    $ curl http://localhost:8080/travel/location/32.0853/34.7818/weather
+
+    {"cityName":"Tel Aviv-Yafo","weather":"scattered clouds","temperature":25.04,"feelsLike":25.35}
+    ```
 
 ## Running tests
 `yarn`:
@@ -45,22 +54,22 @@ You should see one test that passes:
 ```
 $ yarn test
 yarn run v1.22.19
-$ vitest
+$ vitest --run
 
- DEV  v0.34.1 /your/machine/service-boilerplate-ts
+ RUN  v0.34.1 /Users/schachar/work/features/tng/service-boilerplate-ts
 
- ✓ test/services/HelloWorldService.spec.ts (1)
-   ✓ getHelloWorldString (1)
-     ✓ should return a hello world string
+stdout | test/HttpServer.spec.ts > HttpServer > Verify lat and lon are passed to controller
+Server listening at 127.0.0.1:1025
 
- Test Files  1 passed (1)
-      Tests  1 passed (1)
-   Start at  12:16:50
-   Duration  921ms (transform 47ms, setup 0ms, collect 17ms, tests 3ms, environment 0ms, prepare 601ms)
+ ✓ test/services/MitigaWeatherRecommendationService.spec.ts (3)
+ ✓ test/HttpServer.spec.ts (1)
 
+ Test Files  2 passed (2)
+      Tests  4 passed (4)
+   Start at  08:37:01
+   Duration  1.14s (transform 107ms, setup 2ms, collect 599ms, tests 28ms, environment 0ms, prepare 787ms)
 
- PASS  Waiting for file changes...
-       press h to show help, press q to quit
+✨  Done in 3.01s.
 ```
 
 
