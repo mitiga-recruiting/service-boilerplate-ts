@@ -1,4 +1,3 @@
-import fastify from 'fastify'
 import { MitigaWeatherRecommendationController } from './controllers/MitigaWeatherRecommendationController'
 import { MitigaWeatherRecommendationService } from './services/MitigaWeatherRecommendationService'
 import { OpenWeatherDriver } from './drivers/OpenWeatherDriver'

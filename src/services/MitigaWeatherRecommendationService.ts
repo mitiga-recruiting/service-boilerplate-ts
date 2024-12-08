@@ -1,12 +1,12 @@
 import createHttpError from 'http-errors'
 import { OpenWeatherDriver } from '../drivers/OpenWeatherDriver'
 import { CurrentWeatherDTO } from '../travel-service-dto-s'
-import { CurrentWeather, Location, CurrentAstronomical } from 'openweather-api-node'
+import { CurrentWeather, Location } from 'openweather-api-node'
 
 export class MitigaWeatherRecommendationService {
   constructor(private readonly openWeatherDriver: OpenWeatherDriver) {}
   public async getCurrentWeather(lat: number, lon: number): Promise<CurrentWeatherDTO> {
-    const promises: Promise<any>[] = []
+    const promises: Promise<unknown>[] = []
     promises.push(this.openWeatherDriver.getCurrentWeather(lat, lon))
     promises.push(this.openWeatherDriver.getCityForLocation(lat, lon))
     try {
@@ -17,7 +17,7 @@ export class MitigaWeatherRecommendationService {
         temperature: weather.weather.temp.cur,
         feelsLike: weather.weather.feelsLike.cur,
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       throw createHttpError(500, 'Could not get weather for location', { error })
     }
   }

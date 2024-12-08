@@ -12,8 +12,8 @@ describe('HttpServer', () => {
     return { httpServer, mitigaTravelController, port }
   }
   test('Verify lat and lon are passed to controller', async () => {
-    const { httpServer, mitigaTravelController, port } = await givenStartedHttpServer()
-    const result = await axios.get(`http://localhost:${port}/travel/location/100/200/weather`)
+    const { mitigaTravelController, port } = await givenStartedHttpServer()
+    await axios.get(`http://localhost:${port}/travel/location/100/200/weather`)
     expect(mitigaTravelController.currentWeatherAtLocation).toBeCalledWith('100', '200')
   })
 })

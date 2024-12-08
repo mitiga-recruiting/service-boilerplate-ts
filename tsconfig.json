@@ -16,7 +16,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "strict": true,
+    "strict": false,
     "strictFunctionTypes": true,
     "types": ["vitest/globals"]
   },

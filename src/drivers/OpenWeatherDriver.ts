@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { CurrentWeather, Location, OpenWeatherAPI } from 'openweather-api-node'
 
 export class OpenWeatherDriver {

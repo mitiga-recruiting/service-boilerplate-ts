@@ -40,6 +40,16 @@ We wish you the best of luck :-)
     {"cityName":"Tel Aviv-Yafo","weather":"scattered clouds","temperature":25.04,"feelsLike":25.35}
     ```
 
+## Running lint
+`yarn`:
+```
+  yarn lint
+```
+`npm`:
+```
+  npm run lint
+```
+
 ## Running tests
 `yarn`:
 ```
